@@ -1,0 +1,403 @@
+/* --- Variables de Marca Vitto Propiedades --- */
+:root {
+    --bg-dark: #0a0a0a;
+    --card-bg: #1a1a1a;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --accent-green: #10b981; /* Verde Esmeralda */
+    --accent-glow: rgba(16, 185, 129, 0.3);
+    --font-main: 'Inter', sans-serif;
+}
+
+/* --- Base & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Hero Minimal --- */
+.hero-minimal {
+    height: 70vh; /* Altura ideal para móviles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%); */
+    background-image: url(/assets/fondo1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 20px;
+}
+
+.brand-badge {
+    color: var(--accent-green);
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--accent-glow);
+    backdrop-filter: blur(10px);
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    /* background: linear-gradient(to bottom, #ffffff, #888888); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    color:rgb(253, 238, 241);
+}
+
+.hero-content p {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.scroll-indicator {
+    margin-top: 40px;
+    color: var(--accent-green);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* --- Header & Badge --- */
+.main-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 150;
+    background-color: #1a1a1a;
+    opacity: 0.85;
+}
+
+.logo h1 {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.logo span {
+    font-weight: 300;
+    color: var(--text-dim);
+}
+
+.status-badge {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-green);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--accent-green);
+}
+
+.dot-one {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 8px var(--accent-green);
+}
+
+/* --- Galería Hero --- */
+.gallery .main-photo img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Carousel --- */
+.vprop-carousel {
+    position: relative;
+    width: 100%;
+    background: var(--bg-dark);
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ocultar barra de scroll */
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Indicadores tipo iPhone */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 100;
+    padding: 10px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--accent-green);
+    width: 25px; /* Estilo píldora para el activo */
+    border-radius: 10px;
+    transform: scale(0.8);
+}
+
+/* --- Info de Propiedad --- */
+.property-info {
+    padding: 25px 20px;
+}
+
+.price {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.location {
+    color: var(--text-dim);
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+/* Especificaciones de la Propiedad */
+.txt {
+    margin-bottom: 25px;
+}
+
+.txt h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.txt p {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.spec-item {
+    text-align: center;
+}
+
+.spec-item p {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-top: 5px;
+}
+
+/* --- Panorama del Entorno --- */
+.panorama {
+    padding: 0 20px 30px;
+}
+
+/* --- Descripción del Panorama --- */
+.panorama-txt {
+    padding: 20px;
+    text-align: center;
+}
+
+.panorama-txt h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.panorama-txt p {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
+
+.panorama h3 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.panorama-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.panorama-btn {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.panorama-btn:active {
+    transform: scale(0.95);
+    border-color: var(--accent-green);
+}
+
+/* --- Sección Contacto & IA Pulse --- */
+.contact-section {
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, transparent, #111);
+}
+
+.vendedora-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vendedora-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-green);
+    position: relative;
+    z-index: 2;
+    object-position: 50% 10%;
+    
+}
+
+.vendedora-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    /* width: 100%; */
+    /* height: 100%; */
+    border-radius: 50%;
+    border: 1px solid var(--accent-green);
+    animation: pulse 1.8s infinite;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1;border: 12px solid var(--accent-green); }
+    100% { transform: scale(1.5); opacity: 0;border: 2px solid var(--accent-green);}
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    background: var(--accent-green);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 15px;
+    box-shadow: 0 10px 20px var(--accent-glow);
+}
+
+.footer {
+    padding: 30px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+/* --- Área de Información Activa --- */
+.info-active-area {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--accent-green);
+    border-radius: 0 10px 10px 0;
+    min-height: 80px;
+    transition: opacity 0.3s ease;
+}
+
+.info-card h4 {
+    color: var(--accent-green);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.info-card p {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+.placeholder {
+    color: var(--text-dim);
+    font-style: italic;
+    font-size: 0.85rem;
+}
